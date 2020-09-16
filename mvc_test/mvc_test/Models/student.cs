@@ -7,10 +7,10 @@ namespace mvc_test.Models
 {
     public class student
     {
-        public int S_num { get; set; }
+        public int num { get; set; }
         public string ID { get; set; }
-        public string S_name { get; set; }
-        public string S_gender { get; set; }
-        public string S_phone { get; set; }
+        public string name { get; set; }
+        public string gender { get; set; }
+        public string phone { get; set; }
     }
 }

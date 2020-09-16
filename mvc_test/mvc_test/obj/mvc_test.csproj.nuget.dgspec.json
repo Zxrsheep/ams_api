@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj": {}
+    "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj": {
+    "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj",
+        "projectUniqueName": "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj",
         "projectName": "mvc_test",
-        "projectPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj",
+        "projectPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj",
         "packagesPath": "C:\\Users\\15287\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\obj\\",
+        "outputPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

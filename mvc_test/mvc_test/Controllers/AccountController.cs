@@ -43,6 +43,11 @@ namespace mvc_test.Controllers
                     ModelState.AddModelError("ID", "ID already in use!!!");
                     return View("SignUp");
                 }
+                if(user.type != "student" && user.type != "teacher")
+                {
+                    ModelState.AddModelError("type", "no this kind of type(student/teacher)");
+                    return View("SignUp");
+                }
                 PasswordHasher<user> Hasher = new PasswordHasher<user>();
                 user.password = Hasher.HashPassword(user, user.password);
 
@@ -51,12 +56,78 @@ namespace mvc_test.Controllers
 
                 //setting user's first name in session
                 HttpContext.Session.SetString("ID", user.ID);
+                if (user.type == "student")
+                {
+                    return RedirectToAction("SignUp_s");
+                }
+                else
+                {
+                    return RedirectToAction("SignUp_t");
+                }
+               // return RedirectToAction("sucess");
+            }
+            return View("sucess");
+
+        }
+        public IActionResult SignUp_t()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        // register user for resgistration
+        public IActionResult SignUp_t(teacher teacher)
+        {
+            System.Console.WriteLine("*************************************************************************");
+            
+
+            if (ModelState.IsValid)
+            {
+                teacher.ID = HttpContext.Session.GetString("ID");
+                /*if (user.type != "student" || user.type != "teacher")
+                {
+                    ModelState.AddModelError("type", "no this kind of type(student\teacher)");
+                    return View("SignUp");
+                }*/
+
+                _context.Add(teacher);
+                _context.SaveChanges();
 
                 return RedirectToAction("sucess");
             }
             return View("sucess");
 
         }
+
+        public IActionResult SignUp_s()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        // register user for resgistration
+        public IActionResult SignUp_s(student student)
+        {
+            System.Console.WriteLine("*************************************************************************");
+
+            if (ModelState.IsValid)
+            {
+                student.ID = HttpContext.Session.GetString("ID");
+                /*if (user.type != "student" || user.type != "teacher")
+                {
+                    ModelState.AddModelError("type", "no this kind of type(student\teacher)");
+                    return View("SignUp");
+                }*/
+
+                _context.Add(student);
+                _context.SaveChanges();
+
+                return RedirectToAction("sucess");
+            }
+            return View("sucess");
+
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -90,7 +161,7 @@ namespace mvc_test.Controllers
                     return View("Login");
                 }
                 HttpContext.Session.SetString("ID", userInDb.ID);
-
+                HttpContext.Session.SetString("type", userInDb.type);
                 return RedirectToAction("sucess");
             }
             System.Console.WriteLine("========================================");

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `attendance management system` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `attendance management system`;
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: attendance management system
@@ -25,7 +23,7 @@ DROP TABLE IF EXISTS `classroom_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `classroom_info` (
-  `classroom_id` int NOT NULL,
+  `classroom_id` varchar(20) NOT NULL,
   PRIMARY KEY (`classroom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,6 +34,7 @@ CREATE TABLE `classroom_info` (
 
 LOCK TABLES `classroom_info` WRITE;
 /*!40000 ALTER TABLE `classroom_info` DISABLE KEYS */;
+INSERT INTO `classroom_info` VALUES ('1'),('201');
 /*!40000 ALTER TABLE `classroom_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,6 +48,7 @@ DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `course_id` int NOT NULL,
   `course_name` varchar(20) DEFAULT NULL,
+  `T_num` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -59,6 +59,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,'asd','123123'),(2,'计算','123123'),(666,'2333','123123');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,8 +77,7 @@ CREATE TABLE `leave_application` (
   `ask_for_leave_reason` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`course_id`,`class_date`,`s_num`),
   KEY `leave_s_num_idx` (`s_num`),
-  CONSTRAINT `leave_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `leave_s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`S_num`)
+  CONSTRAINT `leave_s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -131,7 +131,7 @@ CREATE TABLE `register` (
   KEY `register_course_id_idx` (`course_id`),
   KEY `register_s_num_idx` (`s_num`),
   CONSTRAINT `register_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `register_s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`S_num`)
+  CONSTRAINT `register_s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,12 +155,11 @@ CREATE TABLE `section` (
   `course_id` int NOT NULL,
   `sec_id` int NOT NULL,
   `semester` varchar(10) NOT NULL,
-  `year` int NOT NULL,
-  `time_slot_id` int DEFAULT NULL,
-  `classroom_id` int DEFAULT NULL,
+  `year` varchar(20) NOT NULL,
+  `time_slot_id` varchar(20) DEFAULT NULL,
+  `classroom_id` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`course_id`,`sec_id`,`year`,`semester`),
-  KEY `section_classroom_idx` (`classroom_id`),
-  CONSTRAINT `section_classroom_id` FOREIGN KEY (`classroom_id`) REFERENCES `classroom_info` (`classroom_id`)
+  KEY `section_classroom_idx` (`classroom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -170,6 +169,7 @@ CREATE TABLE `section` (
 
 LOCK TABLES `section` WRITE;
 /*!40000 ALTER TABLE `section` DISABLE KEYS */;
+INSERT INTO `section` VALUES (2,2,'spring','2020','2','201'),(666,1,'1','1','1','1');
 /*!40000 ALTER TABLE `section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +190,7 @@ CREATE TABLE `select_sec` (
   KEY `slect_S_num_idx` (`S_num`),
   KEY `slect_course_id_idx` (`course_id`),
   CONSTRAINT `slect_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `slect_S_num` FOREIGN KEY (`S_num`) REFERENCES `student` (`S_num`)
+  CONSTRAINT `slect_S_num` FOREIGN KEY (`S_num`) REFERENCES `student` (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -211,12 +211,12 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `student` (
-  `S_num` int NOT NULL,
+  `num` int NOT NULL,
   `ID` varchar(20) DEFAULT NULL,
-  `S_name` varchar(45) DEFAULT NULL,
-  `S_gender` varchar(10) DEFAULT NULL,
-  `S_phone` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`S_num`),
+  `name` varchar(45) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `phone` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`num`),
   KEY `ID_idx` (`ID`),
   CONSTRAINT `S_ID` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -228,7 +228,6 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1852829,'00001','赵茜锐','男','19921306160');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +247,7 @@ CREATE TABLE `supplementary_signature` (
   PRIMARY KEY (`supply_sign_sheet_id`,`s_num`),
   KEY `supplementary_course_id_idx` (`course_id`),
   KEY `supplementary__s_num_idx` (`s_num`),
-  CONSTRAINT `supplementary__s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`S_num`),
+  CONSTRAINT `supplementary__s_num` FOREIGN KEY (`s_num`) REFERENCES `student` (`num`),
   CONSTRAINT `supplementary_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -270,13 +269,13 @@ DROP TABLE IF EXISTS `teacher`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teacher` (
-  `T_num` int NOT NULL,
+  `num` int NOT NULL,
   `ID` varchar(20) DEFAULT NULL,
-  `T_name` varchar(45) DEFAULT NULL,
-  `T_gender` varchar(10) DEFAULT NULL,
-  `T_phone` varchar(25) DEFAULT NULL,
-  `T_dept` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`T_num`),
+  `name` varchar(45) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `phone` varchar(25) DEFAULT NULL,
+  `dept` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`num`),
   KEY `ID_idx` (`ID`),
   CONSTRAINT `T_ID` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -288,6 +287,7 @@ CREATE TABLE `teacher` (
 
 LOCK TABLES `teacher` WRITE;
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+INSERT INTO `teacher` VALUES (123123,'123123','阿斯顿','男','19954614561','see');
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +299,7 @@ DROP TABLE IF EXISTS `time_slot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_slot` (
-  `time_slot_id` int NOT NULL,
+  `time_slot_id` varchar(20) NOT NULL,
   `day` varchar(15) NOT NULL,
   `start_time` varchar(45) DEFAULT NULL,
   `end_time` varchar(45) DEFAULT NULL,
@@ -313,6 +313,7 @@ CREATE TABLE `time_slot` (
 
 LOCK TABLES `time_slot` WRITE;
 /*!40000 ALTER TABLE `time_slot` DISABLE KEYS */;
+INSERT INTO `time_slot` VALUES ('1','1','1','1'),('2','Mon','8.00','9.30');
 /*!40000 ALTER TABLE `time_slot` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +338,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('00001','123456','student'),('00002','111111','teacher'),('1212','AQAAAAEAACcQAAAAEHEssUxpzhTyfpII//d9cPJ/DE4XLQKwrL//Fue0rzW2uXI8bl2Zz6KegKwEe9LU4Q==','student');
+INSERT INTO `user` VALUES ('000001','AQAAAAEAACcQAAAAEMPKYqKIORcvnMd3I2Y0xRf3HPJ9gKZv7skPlEHK1jfG7+FBbOk4HaBqGJw2NaZ3FQ==','student'),('000002','AQAAAAEAACcQAAAAECfw0DSwEy8wGSSarjsFQUadiyukrCnX70kYfo0MEOp167NS7jKwowo/V92nW/gtGQ==','teacher'),('00002','AQAAAAEAACcQAAAAEBxE7RYbYgejTpOubHPkzxAT6RSe2+sDbHP5nYnlNQNBOvPNFJVwe7hcp39t0XtdEg==','student'),('00003','AQAAAAEAACcQAAAAEOe5PwtgdXGkH6t42CtSk14xpJO+LbOHiar8HTWt3LZ8Txkc8CJmjeb4iKrUmB8K8w==','teacher'),('0001','AQAAAAEAACcQAAAAEK5IT/yTVXelrXJQJBgzAVrsufjQ/jo0/denD3iGkP8ele6/iaCl7h9uTU8dpgYjkw==','teacher'),('111000','AQAAAAEAACcQAAAAEHJqXgS5ITgIh3kaG5Xr2FP74I3OU0a+Iyx21om87V3RaFzqrYBLTttWa6/eqaRLQQ==','teacher'),('1212','AQAAAAEAACcQAAAAEHEssUxpzhTyfpII//d9cPJ/DE4XLQKwrL//Fue0rzW2uXI8bl2Zz6KegKwEe9LU4Q==','student'),('123123','AQAAAAEAACcQAAAAEAvPnSAgOnSff1L38XJuUA44tM11UC09AQeq84t5hkD0njC5gA5mNxsf7A6XeWNKzw==','teacher');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -350,4 +351,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-08 20:33:36
+-- Dump completed on 2020-09-16 17:33:30
