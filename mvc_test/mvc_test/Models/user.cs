@@ -14,6 +14,7 @@ namespace mvc_test.Models
         public string password { get; set; }
        // [Required, Display(Name = "类型")]
         public string type { get; set; }
-       // public string Rating { get; set; }
+        // public string Rating { get; set; }
     }
+
 }

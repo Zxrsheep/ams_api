@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,5 +13,8 @@ namespace mvc_test.Models
         public string T_name { get; set; }
         public string T_gender { get; set; }
         public string T_phone { get; set; }
+
+
     }
+
 }

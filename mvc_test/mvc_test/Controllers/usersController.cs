@@ -163,5 +163,11 @@ namespace mvc_test.Controllers
         {
             return _context.user.Any(e => e.ID == id);
         }
+
+        public IActionResult teacher_Index()
+        {
+
+            return View();
+        }
     }
 }

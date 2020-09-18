@@ -149,5 +149,17 @@ namespace mvc_test.Controllers
         {
             return _context.Movie.Any(e => e.Id == id);
         }
+
+        [HttpPost, ActionName("Create_course")]
+        public async Task<IActionResult> Create_course(int course_id,[Bind("course_name")] Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(movie);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(movie);
+        }
     }
 }

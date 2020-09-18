@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj": {}
+    "D:\\GitHub\\1\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj": {
+    "D:\\GitHub\\1\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj",
+        "projectUniqueName": "D:\\GitHub\\1\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj",
         "projectName": "mvc_test",
-        "projectPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\mvc_test.csproj",
-        "packagesPath": "C:\\Users\\15287\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\15287\\Desktop\\新建文件夹\\mvc_test\\mvc_test\\obj\\",
+        "projectPath": "D:\\GitHub\\1\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj",
+        "packagesPath": "C:\\Users\\mache\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\1\\ams_api\\mvc_test\\mvc_test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\15287\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mache\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
