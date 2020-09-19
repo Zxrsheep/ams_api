@@ -1,0 +1,44 @@
+﻿@model IEnumerable<mvc_test.Models.supplementary_signature>
+@{
+    ViewData["Title"] = "教师端-审批补签";
+}
+
+<h1>审批补签</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>补签表编号</th>
+            <th>课程编号</th>
+            <th>上课日期</th>
+            <th>学生学号</th>
+            <th>补签原因</th>
+            <th>选项</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.supply_sign_sheet_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.s_num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supply_sign_reason)
+            </td>
+            <td>
+                <button>通过</button>
+                <button>退回</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

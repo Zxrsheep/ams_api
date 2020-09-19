@@ -1,0 +1,43 @@
+﻿@model IEnumerable<mvc_test.Models.register>
+
+@{
+    ViewData["Title"] = "教师端-班级签到情况查看";
+}
+
+<h1>班级签到情况查看</h1>
+<table class="table" width="50%">
+    <thead>
+        <tr>
+            <th>签到表编号</th>
+            <th>课程编号</th>
+            <th>上课日期</th>
+            <th>学生学号</th>
+            <th>签到状态</th>
+            <th>签到时间</th>
+        </tr>
+    </thead>
+    <tbody>
+   @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.attendance_sheet_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.s_num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sign_in_situation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sign_in_time)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

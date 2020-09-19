@@ -1,10 +1,18 @@
 ﻿@model mvc_test.Models.teacher
 @{
-    ViewData["Title"] = "teacher_menu";
+    ViewData["Title"] = "教师主页";
 }
 
-<h1>teacher_menu</h1>
+<h1>教师主页</h1>
 
 <a href="/users/teacher_Index">填写个人信息</a>
+<br />
 <a href="/courses/Create">创建课程</a>
+<br />
 <a href="#" onclick="javascript:alert('开启成功');">开始签到</a>
+<br/>
+<a href="/Teacher/ClassSituation">查看班级签到情况</a>
+<br />
+<a href="/Teacher/ApprovalLeave">审批请假</a>
+<br />
+<a href="/Teacher/ApprovalSupply">审批补签</a>

@@ -1,34 +1,33 @@
 ﻿@model mvc_test.Models.user
 
 @{
-    ViewData["Title"] = "SignUp";
+    ViewData["Title"] = "用户注册";
 }
 
-<h1>Create</h1>
+<h1>用户注册</h1>
 
-<h4>user</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="SignUp">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
+                <label class="control-label">ID</label>
                 <input asp-for="ID" class="form-control" />
                 <span asp-validation-for="ID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="password" class="control-label"></label>
+                <label class="control-label">密码</label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="type" class="control-label"></label>
+                <label class="control-label">身份</label>
                 <input asp-for="type" class="form-control" />
                 <span asp-validation-for="type" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="SignUp" class="btn btn-primary" />
+                <input type="submit" value="注册" class="btn btn-primary" />
             </div>
 
         </form>
