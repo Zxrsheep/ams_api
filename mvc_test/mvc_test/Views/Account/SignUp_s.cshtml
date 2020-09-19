@@ -1,39 +1,39 @@
 ﻿@model mvc_test.Models.student
 
 @{
-    ViewData["Title"] = "SignUp_s_";
+    ViewData["Title"] = "学生-用户注册";
 }
 
-<h1>Create</h1>
+<h1>用户注册</h1>
 
-<h4>student</h4>
+<h4>学生</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="SignUp_t">
+        <form asp-action="SignUp_s">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="num" class="control-label"></label>
+                <label class="control-label">学号</label>
                 <input asp-for="num" class="form-control" />
                 <span asp-validation-for="num" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
+                <label class="control-label">姓名</label>
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="gender" class="control-label"></label>
+                <label class="control-label">性别</label>
                 <input asp-for="gender" class="form-control" />
                 <span asp-validation-for="gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="phone" class="control-label"></label>
+                <label class="control-label">电话</label>
                 <input asp-for="phone" class="form-control" />
                 <span asp-validation-for="phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="SignUp" class="btn btn-primary" />
+                <input type="submit" value="注册" class="btn btn-primary" onclick="javascript: alert('注册成功');"/>
             </div>
 
         </form>
@@ -41,7 +41,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">返回列表</a>
 </div>
 
 @section Scripts {
