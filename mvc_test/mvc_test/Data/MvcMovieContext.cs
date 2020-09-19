@@ -18,6 +18,9 @@ namespace mvc_test.Data
         public DbSet<section> section { get; set; }
         public DbSet<time_slot> time_slot { get; set; }
         public DbSet<classroom_info> classroom_info { get; set; }
+        public DbSet<register> register { get; set; }
+        public DbSet<leave_application> leave_application { get; set; }
+        public DbSet<supplementary_signature> supplementary_signature { get; set; }
         public object UsersTable { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,6 +32,9 @@ namespace mvc_test.Data
             modelBuilder.Entity<section>().ToTable("section");
             modelBuilder.Entity<time_slot>().ToTable("time_slot");
             modelBuilder.Entity<classroom_info>().ToTable("classroom_info");
+            modelBuilder.Entity<register>().ToTable("register");
+            modelBuilder.Entity<leave_application>().ToTable("leave_application");
+            modelBuilder.Entity<supplementary_signature>().ToTable("supplementary_signature");
         }
     }
 }
