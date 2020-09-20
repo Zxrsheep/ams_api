@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mvc_test.Models.course>
+﻿@model IEnumerable<mvc_test.Models.select_sec>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,23 +9,14 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<form asp-controller="courses" asp-action="Index">
-    <p>
-        课程名: <input type="text" name="SearchString">
-        <input type="submit" value="搜索" />
-    </p>
-</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.course_id)
+                @Html.DisplayNameFor(model => model.S_name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.course_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.T_num)
             </th>
             <th></th>
         </tr>
@@ -35,16 +26,12 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.course_id)
+                    @Html.DisplayFor(modelItem => item.S_name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.course_name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.T_num)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.course_id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.course_id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.course_id">Delete</a>
                 </td>

@@ -26,8 +26,8 @@ namespace mvc_test.Controllers
         // GET: users
         public async Task<IActionResult> Index(string searchString)
         {
-            var users = from m in _context.user
-                         select m;
+                var users = from m in _context.user
+                             select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -86,7 +86,7 @@ namespace mvc_test.Controllers
             {
                 return NotFound();
             }
-
+                
             var user = await _context.user.FindAsync(id);
             if (user == null)
             {

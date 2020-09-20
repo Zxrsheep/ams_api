@@ -1,0 +1,40 @@
+﻿@model mvc_test.Models.select_sec
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>select_sec</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.S_num)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.S_num)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.S_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.S_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.course_id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.course_id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.course_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.course_name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

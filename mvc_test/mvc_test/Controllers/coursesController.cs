@@ -20,16 +20,17 @@ namespace mvc_test.Controllers
         }
 
         // GET: courses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+
             var course = from m in _context.course
                          select m;
 
-            /* if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchString))
              {
-                 course = course.Where(s => s.type.Contains(searchString));
+                 course = course.Where(s => s.course_name.Contains(searchString));
 
-             }*/
+             }
 
             return View(await course.ToListAsync());
         }
@@ -56,7 +57,16 @@ namespace mvc_test.Controllers
         // GET: courses/Create
         public IActionResult Create()
         {
-            return View();
+            string type = HttpContext.Session.GetString("type");
+            if (type == "student")
+            {
+                return View("2");
+            }
+            else if (type == "teacher")
+            {
+                return View("Create");
+            }
+            return View("3");
         }
         // POST: courses/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -69,10 +79,10 @@ namespace mvc_test.Controllers
             {
                 if (_context.course.Any(u => u.course_id == course.course_id))
                 {
-                    ModelState.AddModelError("course_id", "course_id already in use!!!");
+                    ModelState.AddModelError("course_id", "course_id is already  used!!!");
                     return View("Create");
                 }
-                if (_context.course.Any(u => u.T_num != course.T_num))
+                if (!(_context.teacher.Any(u => u.num != course.T_num)))
                 {
                     ModelState.AddModelError("T_num", "T_num no exist!");
                     return View("Create");

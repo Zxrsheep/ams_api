@@ -11,6 +11,7 @@ namespace mvc_test.Data
         }
 
         
+        public DbSet<select_sec> select_sec { get; set; }
         public DbSet<user> user { get; set; }
         public DbSet<student> student { get; set; }
         public DbSet<teacher> teacher { get; set; }
@@ -29,6 +30,7 @@ namespace mvc_test.Data
             modelBuilder.Entity<section>().ToTable("section");
             modelBuilder.Entity<time_slot>().ToTable("time_slot");
             modelBuilder.Entity<classroom_info>().ToTable("classroom_info");
+            modelBuilder.Entity<select_sec>().ToTable("select_sec");
         }
     }
 }

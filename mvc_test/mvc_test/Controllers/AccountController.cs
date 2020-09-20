@@ -149,7 +149,7 @@ namespace mvc_test.Controllers
 
                 if (userInDb == null)
                 {
-                    ModelState.AddModelError("Email", "Invalid Email");
+                    ModelState.AddModelError("ID", "Invalid ID");
                     return View("Login");
                 }
                 var hasher = new PasswordHasher<user>();
@@ -162,13 +162,13 @@ namespace mvc_test.Controllers
                 }
                 HttpContext.Session.SetString("ID", userInDb.ID);
                 HttpContext.Session.SetString("type", userInDb.type);
-                return RedirectToAction("sucess");
+                return View("sucess");
             }
             System.Console.WriteLine("========================================");
             System.Console.WriteLine("Form is Invalid");
             System.Console.WriteLine("========================================");
 
-            return View("Login");
+            return View("sucess");
         }
 
         public async Task<IActionResult> LogOut()

@@ -570,3 +570,14 @@ C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netco
 C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\courses\Create_class.cshtml.g.cs
 C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\courses\Create_sec.cshtml.g.cs
 C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\courses\Create_time.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\courses\2.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\courses\3.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\2.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\3.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\Create.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\Delete.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\Details.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\Edit.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\Index.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\S.cshtml.g.cs
+C:\Users\15287\Desktop\新建文件夹\ams_api\mvc_test\mvc_test\obj\Debug\netcoreapp3.1\Razor\Views\select_sec\sucess.cshtml.g.cs
