@@ -34,7 +34,7 @@ CREATE TABLE `classroom_info` (
 
 LOCK TABLES `classroom_info` WRITE;
 /*!40000 ALTER TABLE `classroom_info` DISABLE KEYS */;
-INSERT INTO `classroom_info` VALUES ('1'),('111'),('201');
+INSERT INTO `classroom_info` VALUES ('1'),('111'),('201'),('407'),('631');
 /*!40000 ALTER TABLE `classroom_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'asd','123123'),(2,'计算','123123'),(666,'2333','123123'),(1212,'1212','123123');
+INSERT INTO `course` VALUES (1,'asd','123123'),(2,'计算','123123'),(3,'asdasd','1'),(121212,'asdasd','1');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +166,7 @@ CREATE TABLE `section` (
 
 LOCK TABLES `section` WRITE;
 /*!40000 ALTER TABLE `section` DISABLE KEYS */;
-INSERT INTO `section` VALUES (2,2,'spring','2020','2','201'),(666,1,'1','1','1','1'),(1212,1212,'11','11','111','111');
+INSERT INTO `section` VALUES (2,2,'spring','2020','2','201'),(3,3,'一','2020','3','407'),(666,1,'1','1','1','1'),(1212,1212,'11','11','111','111'),(121212,2020,'一','2020','123','631');
 /*!40000 ALTER TABLE `section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `select_sec` (
   PRIMARY KEY (`S_num`,`course_id`),
   KEY `slect_S_num_idx` (`S_num`),
   KEY `slect_course_id_idx` (`course_id`),
-  CONSTRAINT `slect_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)
+  CONSTRAINT `slect_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -195,7 +195,7 @@ CREATE TABLE `select_sec` (
 
 LOCK TABLES `select_sec` WRITE;
 /*!40000 ALTER TABLE `select_sec` DISABLE KEYS */;
-INSERT INTO `select_sec` VALUES ('0','阿斯顿',1,'asd'),('0','阿斯顿',1212,'1212');
+INSERT INTO `select_sec` VALUES ('0','阿斯顿',1,'asd'),('0','阿斯顿',3,'asdasd');
 /*!40000 ALTER TABLE `select_sec` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +309,7 @@ CREATE TABLE `time_slot` (
 
 LOCK TABLES `time_slot` WRITE;
 /*!40000 ALTER TABLE `time_slot` DISABLE KEYS */;
-INSERT INTO `time_slot` VALUES ('1','1','1','1'),('111','11','11','11'),('2','Mon','8.00','9.30');
+INSERT INTO `time_slot` VALUES ('1','1','1','1'),('111','11','11','11'),('123','Wedn','8.00','9.30'),('2','Mon','8.00','9.30'),('3','wedn','8.00','9.30');
 /*!40000 ALTER TABLE `time_slot` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-19  9:40:43
+-- Dump completed on 2020-09-20 19:54:25
