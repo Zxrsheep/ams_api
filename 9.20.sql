@@ -119,16 +119,15 @@ DROP TABLE IF EXISTS `register`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `register` (
-  `attendance_sheet_id` int NOT NULL,
-  `course_id` int DEFAULT NULL,
+  `course_id` int NOT NULL,
   `class_date` varchar(15) DEFAULT NULL,
   `s_num` varchar(20) NOT NULL,
   `sign_in_situation` varchar(10) DEFAULT NULL,
   `sign_in_time` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`attendance_sheet_id`,`s_num`),
+  PRIMARY KEY (`s_num`,`course_id`),
   KEY `register_course_id_idx` (`course_id`),
   KEY `register_s_num_idx` (`s_num`),
-  CONSTRAINT `register_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)
+  CONSTRAINT `register_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -185,7 +184,7 @@ CREATE TABLE `select_sec` (
   PRIMARY KEY (`S_num`,`course_id`),
   KEY `slect_S_num_idx` (`S_num`),
   KEY `slect_course_id_idx` (`course_id`),
-  CONSTRAINT `slect_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE
+  CONSTRAINT `slect_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-20 19:54:25
+-- Dump completed on 2020-09-20 20:14:13

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T2WLzxrhzhEvGGxcouCeA09Pkizh1FAgXhUiy8fB8Tu02nI3P5xU+UHZbQO9wTNcEJPt2JvWXgLiC96W/NC2tw==",
+  "dgSpecHash": "vSRH4VFwCQ+H5rk5xcv9e+dXPaXJP5FQvWwFmgLqjBZBbpHYZ75fU/4ODMykFMYOl4k+xb1f+RTxXvhJbPeJDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\15287\\Desktop\\新建文件夹\\ams_api\\mvc_test\\mvc_test\\mvc_test.csproj",
+  "projectFilePath": "C:\\Users\\15287\\Desktop\\新建文件夹\\ams\\mvc_test\\mvc_test\\mvc_test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\15287\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\15287\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
